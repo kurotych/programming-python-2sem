@@ -1,0 +1,30 @@
+site_name: Python (2 семестр)
+
+watch:
+  - docs
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - toc.integrate
+    - content.code.copy
+
+markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+nav:
+  - Головна: index.md
+  - Модуль 1:
+    - module1/01-sqlite-lecture.md
+    - module1/02-sqlite-practice.md
