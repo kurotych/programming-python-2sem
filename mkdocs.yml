@@ -24,8 +24,17 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
 
+copyright: 2026 Куротич Анатолій. Всі права захищені.
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/kurotych
+
 nav:
   - Головна: index.md
   - Модуль 1:
     - module1/01-sqlite-lecture.md
     - module1/02-sqlite-practice.md
+
+
