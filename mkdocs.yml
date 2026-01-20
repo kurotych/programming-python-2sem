@@ -1,11 +1,14 @@
 site_name: Python (2 семестр)
 site_url: https://kurotych.com/programming-2sem/
+repo_url: https://github.com/kurotych/programming-python-2sem
+repo_name: kurotych/programming-python-2sem
 
 watch:
   - docs
 
 theme:
   name: material
+  custom_dir: overrides
   features:
     - navigation.sections
     - navigation.expand
