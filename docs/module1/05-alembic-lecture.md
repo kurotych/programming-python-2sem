@@ -260,103 +260,7 @@ alembic history
 alembic history --verbose
 ```
 
-### Автогенерація міграцій
-
-Alembic може автоматично генерувати міграції на основі змін у SQLAlchemy моделях.
-
-**1. Створіть файл з моделями `models.py`:**
-
-```python
-# models.py
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, func
-from sqlalchemy.orm import declarative_base, relationship
-
-Base = declarative_base()
-
-
-class User(Base):
-    __tablename__ = 'users'
-
-    id = Column(Integer, primary_key=True)
-    name = Column(String(100), nullable=False)
-    email = Column(String(255), unique=True)
-    created_at = Column(DateTime, server_default=func.now())
-
-    # Зв'язок з замовленнями
-    orders = relationship("Order", back_populates="user")
-
-
-class Order(Base):
-    __tablename__ = 'orders'
-
-    id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
-    total = Column(Integer, nullable=False)
-    created_at = Column(DateTime, server_default=func.now())
-
-    # Зв'язок з користувачем
-    user = relationship("User", back_populates="orders")
-```
-
-**2. Налаштуйте `alembic/env.py` для автогенерації:**
-
-```python
-
-from logging.config import fileConfig
-from sqlalchemy import engine_from_config
-from sqlalchemy import pool
-from alembic import context
-import os
-
-config = context.config
-
-if config.config_file_name is not None:
-    fileConfig(config.config_file_name)
-
-target_metadata = None
-
-
-def get_url():
-    return os.environ.get("DATABASE_URL", "postgresql://postgres:secret@localhost:5432/mydb")
-
-
-def run_migrations_online() -> None:
-    """Run migrations in 'online' mode.
-
-    In this scenario we need to create an Engine
-    and associate a connection with the context.
-
-    """
-    configuration = config.get_section(config.config_ini_section)
-    # Ось тут добавили виклик get_url() який повертає connection string до бд
-    configuration["sqlalchemy.url"] = get_url()
-
-    connectable = engine_from_config(
-        configuration,
-        prefix="sqlalchemy.",
-        poolclass=pool.NullPool,
-    )
-
-    with connectable.connect() as connection:
-        context.configure(
-            connection=connection, target_metadata=target_metadata
-        )
-
-        with context.begin_transaction():
-            context.run_migrations()
-
-
-run_migrations_online()
-```
-
-**3. Генерація міграції:**
-
-```bash
-# Автогенерація міграції на основі змін у моделях
-alembic revision --autogenerate -m "add orders table"
-```
-
-**4. Застосування міграції:**
+**3. Застосування міграції:**
 ```bash
 ❯ alembic upgrade head
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
@@ -400,14 +304,10 @@ alembic init alembic
 
 # 2. Налаштування alembic.ini та env.py
 
-# 3. Створення моделей у models.py
+# 3. Перша міграція (автогенерація)
+alembic revision -m "create users table"
 
-# 4. Перша міграція (автогенерація)
-alembic revision --autogenerate -m "initial schema"
-
-# 5. Перевірка згенерованого файлу міграції
-
-# 6. Застосування міграції
+# 4. Застосування міграції
 alembic upgrade head
 ```
 
