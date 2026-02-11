@@ -41,5 +41,6 @@ nav:
     - module1/02-sqlite-practice.md
     - module1/03-psycopg2-lecture.md
     - module1/04-psycopg2-practice.md
+    - module1/05-alembic-lecture.md
 
 

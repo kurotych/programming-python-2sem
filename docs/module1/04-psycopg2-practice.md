@@ -1,5 +1,6 @@
 # 4. (П2) Виконання завдань з Python та PostgreSQL
 
+## Завдання
 Завдання аналогічне до першої практичної, але на цей раз використати PostgreSQL.
 
 Виконувати лише за допомогою Python коду (без прямого втручання в БД)
@@ -23,7 +24,8 @@ Weather history from: <ВАШІ ім'я та прізвище>:
 curl "https://wttr.in/Lutsk?format=%t"
 ```
 
-Для запуску PostgreSQL використовуйте Docker:
+## Команда запуску PostgreSQL за допомогою docker
+Для запуску PostgreSQL ви можете використати Docker:
 ```bash
-docker run --name my-postgres -e POSTGRES_PASSWORD=secret -e POSTGRES_DB=mydb -p 5432:5432 -d postgres
+docker run -e POSTGRES_PASSWORD=secret -e POSTGRES_DB=mydb -p 5432:5432 -d postgres
 ```
