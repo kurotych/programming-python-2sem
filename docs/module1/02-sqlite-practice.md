@@ -4,6 +4,8 @@
 
 Розробити сервіс, який зберігає інформацію про погоду в місті Луцьк (Lutsk) в sqlite бд
 використовуючи [wttr.in](https://github.com/chubin/wttr.in) API.
+Якщо wttr.in не працює, можна використати любий інший сервіс наприклад:
+https://api.open-meteo.com/v1/forecast?latitude=50.7472&longitude=25.3254&current_weather=true
 Сервіс повинен підтримувати два command line аргументи:
 
 - service - запускає процес, який кожну хвилину зберігає інформацію про температуру в бд

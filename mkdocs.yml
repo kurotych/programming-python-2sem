@@ -42,5 +42,6 @@ nav:
     - module1/03-psycopg2-lecture.md
     - module1/04-psycopg2-practice.md
     - module1/05-alembic-lecture.md
+    - module1/06-alembic-practice.md
 
 
