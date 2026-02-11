@@ -62,8 +62,6 @@ pip install alembic sqlalchemy psycopg2-binary
 alembic --version
 ```
 
-### Структура проєкту
-
 ### Ініціалізація Alembic у проєкті
 
 ```bash
@@ -116,7 +114,7 @@ def get_url():
 
 def run_migrations_online():
     configuration = config.get_section(config.config_ini_section)
-    configuration["sqlalchemy.url"] = get_url() ## Ось тут добавили виклик get_url() який поветрає connection string до бд
+    configuration["sqlalchemy.url"] = get_url() ## Ось тут добавили виклик get_url() який повертає connection string до бд
 
     connectable = engine_from_config(
         configuration,
@@ -330,7 +328,7 @@ def run_migrations_online() -> None:
 
     """
     configuration = config.get_section(config.config_ini_section)
-    # Ось тут добавили виклик get_url() який поветрає connection string до бд
+    # Ось тут добавили виклик get_url() який повертає connection string до бд
     configuration["sqlalchemy.url"] = get_url()
 
     connectable = engine_from_config(
