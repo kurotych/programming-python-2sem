@@ -30,6 +30,9 @@ markdown_extensions:
 copyright: 2026 Куротич Анатолій. Всі права захищені.
 
 extra:
+  analytics:
+    provider: google
+    property: G-HKDH744EMY
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/kurotych
