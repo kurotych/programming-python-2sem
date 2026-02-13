@@ -34,7 +34,7 @@ import psycopg2
 Перед підключенням потрібно мати запущений сервер PostgreSQL. Найпростіший спосіб — використати Docker:
 
 ```bash
-docker run --name my-postgres -e POSTGRES_PASSWORD=secret -e POSTGRES_DB=mydb -p 5432:5432 -d postgres
+docker run -e POSTGRES_PASSWORD=secret -e POSTGRES_DB=mydb -p 5432:5432 -d postgres
 ```
 
 Ця команда:
