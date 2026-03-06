@@ -3,8 +3,6 @@
 ## Передумови
 
 - Прочитані лекції [11 — Вступ до Docker](/ua/courses/programming-2sem/module1/11-docker-lecture/) та [12 — Dockerfile](/ua/courses/programming-2sem/module1/12-dockerfile-lecture/)
-- Встановлений Docker ([інструкція встановлення](#крок-1-встановлення-docker))
-
 ## Завдання
 
 Встановити Docker, створити персоналізований Python-застосунок, запакувати його в Docker-образ та відпрацювати базові команди управління контейнерами.
@@ -15,7 +13,6 @@
 
 - **Linux (Ubuntu/Debian):** [docs.docker.com/engine/install/ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 - **macOS:** [docs.docker.com/desktop/setup/install/mac-install](https://docs.docker.com/desktop/setup/install/mac-install/)
-- **Windows:** [docs.docker.com/desktop/setup/install/windows-install](https://docs.docker.com/desktop/setup/install/windows-install/)
 
 Перевірити, що Docker встановлено коректно:
 
