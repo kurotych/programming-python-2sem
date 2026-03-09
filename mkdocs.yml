@@ -16,6 +16,8 @@ theme:
     - content.code.copy
 
 markdown_extensions:
+  - admonition
+  - pymdownx.details
   - toc:
       permalink: true
       toc_depth: 3
@@ -25,7 +27,11 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 copyright: 2026 Куротич Анатолій. Всі права захищені.
 
@@ -53,5 +59,6 @@ nav:
     - module1/11-docker-lecture.md
     - module1/12-dockerfile-lecture.md
     - module1/13-docker-practice.md
+    - module1/14-docker-management-lecture.md
 
 
