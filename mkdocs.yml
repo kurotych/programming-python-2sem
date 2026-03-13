@@ -61,5 +61,6 @@ nav:
     - module1/13-docker-practice.md
     - module1/14-docker-management-lecture.md
     - module1/15-docker-postgres-practice.md
-
+  - Модуль 2:
+    - module2/16-http-rest-lecture.md
 
