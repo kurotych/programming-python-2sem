@@ -63,4 +63,5 @@ nav:
     - module1/15-docker-postgres-practice.md
   - Модуль 2:
     - module2/16-http-rest-lecture.md
+    - module2/17-rest-api-design-practice.md
 

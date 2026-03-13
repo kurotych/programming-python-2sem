@@ -13,7 +13,8 @@
 9. Ресурси та URL
 10. Приклад RESTful API
 11. Формат JSON
-12. Інструменти для роботи з HTTP
+12. Специфікація OpenAPI (Swagger)
+13. Інструменти для роботи з HTTP
 
 ## Як працює веб: клієнт-серверна модель
 
@@ -470,6 +471,199 @@ print(type(parsed))    # <class 'dict'>
 | `True` / `False` | `true` / `false` |
 | `None` | `null` |
 
+## Специфікація OpenAPI (Swagger)
+
+Коли API стає складним, потрібен стандартний спосіб його **документування**. Саме для цього існує **OpenAPI**.
+
+### Що таке OpenAPI
+
+**OpenAPI Specification** (раніше Swagger Specification) — це стандартний формат опису REST API у вигляді YAML або JSON файлу. Цей файл описує:
+
+- Які endpoint-и доступні
+- Які HTTP-методи підтримуються
+- Які параметри приймає кожен endpoint
+- Які відповіді повертає сервер
+- Структуру даних (схеми)
+
+```mermaid
+graph LR
+    spec["OpenAPI YAML"] --> editor["Swagger Editor<br/>(візуалізація)"]
+    spec --> codegen["Генерація коду<br/>(сервер/клієнт)"]
+    spec --> docs["Документація<br/>(PDF, HTML)"]
+    style spec fill:#fcc419,stroke:#333,color:#000
+```
+
+### Swagger Editor
+
+[Swagger Editor](https://editor.swagger.io/) — безкоштовний онлайн-редактор для написання OpenAPI специфікацій. Він працює прямо в браузері без встановлення:
+
+- Ліва панель — YAML-код специфікації
+- Права панель — візуалізація API в реальному часі
+- Валідація помилок на льоту
+- Можливість експортувати документацію
+
+### Структура OpenAPI-файлу
+
+Специфікація пишеться у форматі **YAML**:
+
+```yaml
+openapi: 3.0.3
+info:
+  title: Student API
+  description: API для управління студентами
+  version: 1.0.0
+
+paths:
+  /api/students:
+    get:
+      summary: Отримати список студентів
+      responses:
+        '200':
+          description: Список студентів
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+    post:
+      summary: Створити студента
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudentCreate'
+      responses:
+        '201':
+          description: Студент створений
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '400':
+          description: Невалідні дані
+
+  /api/students/{id}:
+    get:
+      summary: Отримати студента за ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Дані студента
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '404':
+          description: Студент не знайдений
+
+components:
+  schemas:
+    Student:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        first_name:
+          type: string
+          example: Тарас
+        last_name:
+          type: string
+          example: Шевченко
+        email:
+          type: string
+          example: taras@example.com
+
+    StudentCreate:
+      type: object
+      required:
+        - first_name
+        - last_name
+        - email
+      properties:
+        first_name:
+          type: string
+          example: Тарас
+        last_name:
+          type: string
+          example: Шевченко
+        email:
+          type: string
+          example: taras@example.com
+```
+
+### Ключові секції
+
+| Секція | Призначення |
+|---|---|
+| `openapi` | Версія специфікації (3.0.3) |
+| `info` | Назва, опис, версія API |
+| `paths` | Endpoint-и та їхні методи |
+| `parameters` | Параметри запиту (path, query) |
+| `requestBody` | Тіло запиту (для POST, PUT) |
+| `responses` | Можливі відповіді з кодами стану |
+| `components/schemas` | Моделі даних (перевикористовуються через `$ref`) |
+
+### $ref — посилання на схеми
+
+Замість дублювання структури даних у кожному endpoint-і, визначте схему один раз у `components/schemas` і посилайтесь на неї:
+
+```yaml
+# Визначення
+components:
+  schemas:
+    Student:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+
+# Використання в будь-якому endpoint-і
+responses:
+  '200':
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/Student'
+```
+
+### Параметри запиту
+
+```yaml
+# Path-параметр: /api/students/42
+parameters:
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: integer
+
+# Query-параметр: /api/students?status=active
+parameters:
+  - name: status
+    in: query
+    required: false
+    schema:
+      type: string
+      enum: [active, inactive]
+```
+
+### Як спробувати
+
+1. Відкрийте [editor.swagger.io](https://editor.swagger.io/)
+2. Видаліть вміст лівої панелі
+3. Вставте (повний) YAML-приклад вище
+4. Праворуч з'явиться візуальна документація API
+
 ## Інструменти для роботи з HTTP
 
 ### curl — командний рядок
@@ -572,6 +766,7 @@ print(response.headers["Content-Type"])  # application/json
 | **REST** | Архітектурний стиль: ресурси + HTTP-методи + коди стану |
 | **JSON** | Стандартний формат даних у Web API |
 | **CRUD** | Create (POST), Read (GET), Update (PUT), Delete (DELETE) |
+| **OpenAPI** | Стандарт опису REST API у форматі YAML/JSON |
 
 ## Корисні посилання
 
@@ -582,6 +777,8 @@ print(response.headers["Content-Type"])  # application/json
 - [Документація requests](https://docs.python-requests.org/)
 - [Дисертація Роя Філдінга (глава 5 — REST)](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm)
 - [JSON.org](https://www.json.org/json-ua.html)
+- [OpenAPI Specification](https://spec.openapis.org/oas/v3.0.3) — офіційна специфікація
+- [Swagger Editor](https://editor.swagger.io/) — онлайн-редактор OpenAPI
 
 ## Домашнє завдання
 
