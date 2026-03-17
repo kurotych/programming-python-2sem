@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Educational course platform for "Python Programming - Semester 2" (Ukrainian language). This is a static documentation site built with MkDocs Material, not a Python application. Content focuses on database programming with Python (SQLite, PostgreSQL, Alembic migrations).
+Educational course platform for "Python Programming - Semester 2" (Ukrainian language). This is a static documentation site built with MkDocs Material, not a Python application.
 
 ## Commands
 
@@ -22,24 +22,24 @@ mkdocs serve --livereload
 
 - **docs/** — Course content in Markdown (Ukrainian). Organized by modules with paired lecture/practice files.
 - **mkdocs.yml** — Site configuration, navigation, theme settings, and markdown extensions.
-- **overrides/** — MkDocs Material theme customizations (footer with GitHub issue link).
-- **requirements.txt** — MkDocs and related dependencies.
+- **overrides/main.html** — Extends base template to add a footer with GitHub issue link.
+- **requirements.txt** — MkDocs and related dependencies (pinned versions).
 
 ### Content naming convention
 
-Files follow `NN-<topic>-<type>.md` pattern (e.g., `01-sqlite-lecture.md`, `02-sqlite-practice.md`).
+Files follow `NN-<topic>-<type>.md` pattern (e.g., `01-sqlite-lecture.md`, `02-sqlite-practice.md`). New content must also be added to the `nav` section in `mkdocs.yml`.
 
 ### Course modules
 
-1. **Module 1** (implemented): Database work — SQLite, PostgreSQL (psycopg2), Alembic migrations
-2. **Module 2** (planned): REST API with Flask
+1. **Module 1** (implemented): SQLite, PostgreSQL (psycopg2), Alembic migrations, error handling & transactions, testing, Docker
+2. **Module 2** (in progress): HTTP/REST APIs
 3. **Module 3** (planned): Async programming basics
 4. **Module 4** (planned): High-performance async systems
 
 ## Key Details
 
 - All documentation is in **Ukrainian**. Maintain this when editing content.
-- Code examples in lectures use Python sqlite3, psycopg2, and Alembic libraries.
-- Practice assignments build incrementally: weather service → PostgreSQL adaptation → migration integration.
+- Practice assignments build incrementally within each module.
 - Site deploys to GitHub Pages at `https://kurotych.com/ua/courses/programming-2sem/`.
-- Markdown extensions enabled: `pymdownx.highlight`, `pymdownx.superfences`, `pymdownx.snippets`, `pymdownx.inlinehilite`, `toc` with permalinks.
+- Markdown extensions: `admonition`, `pymdownx.details`, `pymdownx.highlight`, `pymdownx.superfences` (with **mermaid** diagram support), `pymdownx.snippets`, `pymdownx.inlinehilite`, `toc` with permalinks.
+- Do not create guides for windows

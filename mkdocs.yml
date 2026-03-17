@@ -64,4 +64,5 @@ nav:
   - Модуль 2:
     - module2/16-http-rest-lecture.md
     - module2/17-rest-api-design-practice.md
+    - module2/18-flask-routing-lecture.md
 
