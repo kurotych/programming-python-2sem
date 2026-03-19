@@ -66,4 +66,5 @@ nav:
     - module2/17-rest-api-design-practice.md
     - module2/18-flask-routing-lecture.md
     - module2/19-flask-routing-practice.md
+    - module2/20-flask-request-data-lecture.md
 
