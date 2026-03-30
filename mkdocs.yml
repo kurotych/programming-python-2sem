@@ -70,4 +70,5 @@ nav:
     - module2/21-flask-request-data-practice.md
     - module2/22-flask-crud-postgres-lecture.md
     - module2/23-flask-crud-postgres-practice.md
+    - module2/24-flask-sessions-lecture.md
 
