@@ -30,7 +30,6 @@ docker run -d \
 #### Проєкт
 
 ```bash
-mkdir book-library && cd book-library
 python3 -m venv env
 source env/bin/activate
 pip install flask psycopg2-binary

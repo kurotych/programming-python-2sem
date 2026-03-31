@@ -19,7 +19,6 @@
 Продовжуйте роботу в проєкті з Практичної 9. Якщо потрібно почати з нуля:
 
 ```bash
-mkdir task-manager && cd task-manager
 python3 -m venv env
 source env/bin/activate
 pip install flask
