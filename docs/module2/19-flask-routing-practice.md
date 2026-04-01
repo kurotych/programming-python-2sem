@@ -4,7 +4,6 @@
 
 - Прочитана [Лекція 18 — Знайомство з Flask. Маршрутизація](/ua/courses/programming-2sem/module2/18-flask-routing-lecture/)
 - Виконана [Практична 8 — Проєктування REST API](/ua/courses/programming-2sem/module2/17-rest-api-design-practice/) (специфікація Task Manager API)
-- Встановлений Python 3.10+
 
 ## Завдання
 

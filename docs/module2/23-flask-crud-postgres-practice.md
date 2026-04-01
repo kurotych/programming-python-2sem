@@ -4,7 +4,6 @@
 
 - Прочитана [Лекція 22 — CRUD операції у Flask REST API з використанням PostgreSQL](/ua/courses/programming-2sem/module2/22-flask-crud-postgres-lecture/)
 - Виконана [Практична 10 — Завдання з передачі даних в HTTP-запиті](/ua/courses/programming-2sem/module2/21-flask-request-data-practice/)
-- Встановлений Python 3.10+
 - Встановлений Docker
 
 !!! warning "Персоналізація"

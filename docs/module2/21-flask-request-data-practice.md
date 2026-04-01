@@ -4,7 +4,6 @@
 
 - Прочитана [Лекція 20 — Доступ до даних в HTTP-запиті за допомогою Flask](/ua/courses/programming-2sem/module2/20-flask-request-data-lecture/)
 - Виконана [Практична 9 — Імплементація маршрутів для REST API у Flask](/ua/courses/programming-2sem/module2/19-flask-routing-practice/)
-- Встановлений Python 3.10+
 
 !!! warning "Персоналізація"
     У всіх запитах, де передається поле `created_by`, повинно бути **ваше ім'я та прізвище**. Заголовок `X-User` також повинен містити ваше ім'я та прізвище. На скріншотах у звіті повинно бути видно ваше ім'я.
