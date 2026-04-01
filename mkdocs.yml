@@ -74,4 +74,5 @@ nav:
     - module2/25-flask-sessions-practice.md
     - module2/26-testing-rest-api-lecture.md
     - module2/27-testing-rest-api-practice.md
+    - module2/28-ci-github-actions-lecture.md
 
