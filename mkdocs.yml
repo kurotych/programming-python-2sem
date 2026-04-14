@@ -78,4 +78,7 @@ nav:
     - module2/29-ci-github-actions-practice.md
     - module2/30-docker-flask-lecture.md
     - module2/31-docker-flask-practice.md
+  - Модуль 3:
+    - module3/32-async-basics-lecture.md
+    - module3/33-threading-multiprocessing-practice.md
 
