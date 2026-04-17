@@ -43,4 +43,4 @@ Files follow `NN-<topic>-<type>.md` pattern (e.g., `01-sqlite-lecture.md`, `02-s
 - Site deploys to GitHub Pages at `https://kurotych.com/ua/courses/programming-2sem/`.
 - Markdown extensions: `admonition`, `pymdownx.details`, `pymdownx.highlight`, `pymdownx.superfences` (with **mermaid** diagram support), `pymdownx.snippets`, `pymdownx.inlinehilite`, `toc` with permalinks.
 - Do not create guides for windows
-- Use cyrillic symbols in code samples **only** for comments
+- In code samples, Cyrillic is allowed **only inside comments**. Everything else — string literals, `print()` arguments, log messages, variable/function names, terminal output blocks, error messages — must be Latin-only. This applies to any text that would appear in stdout/stderr, over the network, or as code identifiers.
