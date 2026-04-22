@@ -83,4 +83,5 @@ nav:
     - module3/33-threading-multiprocessing-practice.md
     - module3/34-event-loop-sockets-lecture.md
     - module3/35-threaded-downloads-practice.md
+    - module3/36-asyncio-basics-lecture.md
 
