@@ -89,4 +89,7 @@ nav:
     - module3/39-asyncio-tasks-management-practice.md
     - module3/40-asyncio-debugging-lecture.md
     - module3/41-asyncio-debugging-practice.md
+  - Модуль 4:
+    - module4/42-osi-model-lecture.md
+    - module4/43-network-transport-layers-lecture.md
 
