@@ -92,4 +92,6 @@ nav:
   - Модуль 4:
     - module4/42-osi-model-lecture.md
     - module4/43-network-transport-layers-lecture.md
+    - module4/44-udp-lecture.md
+    - module4/45-tcp-lecture.md
 
