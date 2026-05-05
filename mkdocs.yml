@@ -96,4 +96,5 @@ nav:
     - module4/45-tcp-lecture.md
     - module4/46-sockets-blocking-lecture.md
     - module4/47-blocking-limitations-lecture.md
+    - module4/48-blocking-echo-server-practice.md
 
