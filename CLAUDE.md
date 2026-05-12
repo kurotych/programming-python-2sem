@@ -44,3 +44,4 @@ Files follow `NN-<topic>-<type>.md` pattern (e.g., `01-sqlite-lecture.md`, `02-s
 - Markdown extensions: `admonition`, `pymdownx.details`, `pymdownx.highlight`, `pymdownx.superfences` (with **mermaid** diagram support), `pymdownx.snippets`, `pymdownx.inlinehilite`, `toc` with permalinks.
 - Do not create guides for windows
 - In code samples, Cyrillic is allowed **only inside comments**. Everything else — string literals, `print()` arguments, log messages, variable/function names, terminal output blocks, error messages — must be Latin-only. This applies to any text that would appear in stdout/stderr, over the network, or as code identifiers.
+- Python examples always do complete. They must work after copying into empty (*.py) document

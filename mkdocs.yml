@@ -97,4 +97,6 @@ nav:
     - module4/46-sockets-blocking-lecture.md
     - module4/47-blocking-limitations-lecture.md
     - module4/48-blocking-echo-server-practice.md
+    - module4/49-non-blocking-sockets-lecture.md
+    - module4/50-non-blocking-echo-server-practice.md
 
