@@ -99,4 +99,6 @@ nav:
     - module4/48-blocking-echo-server-practice.md
     - module4/49-non-blocking-sockets-lecture.md
     - module4/50-non-blocking-echo-server-practice.md
+    - module4/51-event-loop-selectors-lecture.md
+    - module4/52-non-blocking-udp-echo-practice.md
 
