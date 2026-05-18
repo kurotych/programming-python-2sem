@@ -101,4 +101,6 @@ nav:
     - module4/50-non-blocking-echo-server-practice.md
     - module4/51-event-loop-selectors-lecture.md
     - module4/52-non-blocking-udp-echo-practice.md
+    - module4/53-asyncio-echo-server-lecture.md
+    - module4/54-asyncio-echo-server-practice.md
 
