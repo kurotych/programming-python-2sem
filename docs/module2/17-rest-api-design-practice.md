@@ -255,9 +255,64 @@ components:
 Зберегти візуалізовану документацію у PDF:
 
 1. У Swagger Editor переконайтесь, що всі endpoint-и розгорнуті
-2. У браузері: **Файл → Друк** (або `Ctrl+P` / `Cmd+P`)
+2. У браузері: **Файл → Друк** (або `Ctrl+P` / `Cmd+P`) (Якщо виникли проблеми з відображенням, перегляньте [розділ усунення несправностей](#downloading-pdf-troubleshoot))
 3. Оберіть **"Зберегти як PDF"** замість принтера
 4. Збережіть файл як `task-manager-api.pdf`
+
+<details id="downloading-pdf-troubleshoot">
+<summary><h3>Downloading pdf troubleshoot</h3></summary>
+
+> [!TIP]
+> Якщо при завантаженні через стандартне меню у вас виникли проблеми(наприклад завантажений pdf порожній, що відбувається через те що Swagger автоматично ховає майже усе при спробі завантаження) вам потрібно зайти в DevTools(права кнопка миші -> Перевірити код) і зверху перейти на вкладку `Console` там вам потрібно вставити код який автоматично видалить усі непотрібні елементи зі сторінки, витягне з DOM відрендерену документацію і запропонує завантажити файл.
+
+> [!IMPORTANT]
+> Перед тим як вставляти цей код, збережіть ваші зміни в локальному файлі про всяк випадок.
+
+```JavaScript
+(function () {
+  const selectors = [
+    '.swagger-ui',
+    '#swagger-ui',
+    '.preview-container',
+    '.editor-preview',
+    '.Pane2',
+    '[class*="preview"]'
+  ];
+
+  let preview = null;
+  for (const sel of selectors) {
+    const el = document.querySelector(sel);
+    if (el && el.offsetHeight > 0) {
+      preview = el;
+      break;
+    }
+  }
+
+  if (!preview) {
+    console.log('Не знайшов preview автоматично. Ось всі елементи верхнього рівня — обери потрібний вручну:');
+    console.log(document.body.children);
+    return;
+  }
+
+  const clone = preview.cloneNode(true);
+
+  document.title = 'Swagger Preview';
+  document.body.innerHTML = '';
+  document.body.style.margin = '0';
+  document.body.style.overflow = 'visible';
+  document.body.style.height = 'auto';
+
+  clone.style.height = 'auto';
+  clone.style.maxHeight = 'none';
+  clone.style.overflow = 'visible';
+  clone.style.width = '100%';
+
+  document.body.appendChild(clone);
+
+  window.print();
+})();
+```
+</details>
 
 ## Результат
 
