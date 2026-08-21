@@ -18,6 +18,7 @@ theme:
 markdown_extensions:
   - admonition
   - pymdownx.details
+  - pymdownx.superfences
   - toc:
       permalink: true
       toc_depth: 3
